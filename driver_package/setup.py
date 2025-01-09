@@ -1,0 +1,28 @@
+from setuptools import find_packages, setup
+
+package_name = 'driver_package'
+
+setup(
+    name=package_name,
+    version='0.0.0',
+    packages=find_packages(exclude=['test']),
+    data_files=[
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+        ('share/' + package_name, ['package.xml']),
+    ],
+    install_requires=['setuptools'],
+    zip_safe=True,
+    maintainer='re',
+    maintainer_email='re@todo.todo',
+    description='TODO: Package description',
+    license='TODO: License declaration',
+    tests_require=['pytest'],
+    entry_points={
+        'console_scripts': [
+            "camera_driver = driver_package.camera_driver:main",
+            "sensor_driver = driver_package.sensor_driver:main",
+            "grip_driver = driver_package.grip_driver:main",
+        ],
+    },
+)
